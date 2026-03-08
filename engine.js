@@ -19,3 +19,17 @@ function divide(num1,num2){//divides the first number with respect to the second
     if(num2!=0) return num1/num2;
     else return "Nice try, I prepared for that"
 }
+
+function operate(var1, var2, operator){
+    switch(operator){
+        case '+': add(var1, var2);
+            break;
+        case '-': subtract(var1, var2);
+            break;
+        case '*': multiply(num1,num2);
+            break;
+        case '/': divide(var1, var2);
+            break;
+        default: '!!!Something Went Wrong!!!'
+    }
+}
