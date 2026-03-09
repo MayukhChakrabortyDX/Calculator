@@ -1,5 +1,5 @@
 //global
-let var1, var2, operator;
+let var1="", var2="", operator;
 
 //declaration
 
@@ -20,17 +20,19 @@ function divide(num1,num2){//divides the first number with respect to the second
     else return "Nice try, I prepared for that"
 }
 
-function operate(var1, var2, operator){
+function operate(){
+    var1= parseInt(var1);
+    var2= parseInt(var2);
     switch(operator){
-        case '+': add(var1, var2);
+        case '+': return add(var1, var2);
             break;
-        case '-': subtract(var1, var2);
+        case '-': return subtract(var1, var2);
             break;
-        case '*': multiply(num1,num2);
+        case '*': return multiply(num1,num2);
             break;
-        case '/': divide(var1, var2);
+        case '/': return divide(var1, var2);
             break;
-        default: '!!!Something Went Wrong!!!'
+        default: console.log("The operator is:", operator);
     }
 }
 
@@ -42,7 +44,29 @@ const numButton= document.createElement("button");
 numButton.textContent= `${i}`;
 numerical.appendChild(numButton);
 }
-
-numerical.addEventListener("click", function(){
-    
+const DisplayInput= document.querySelector(".input")
+numerical.addEventListener("click", function(e){
+    if(e.target.tagName !=="BUTTON") return console.log("wrong place!");
+    var2= var2+ e.target.textContent;
+    DisplayInput.textContent= `${var2}`;
 })
+const operater = document.querySelector(".operator");
+operater.addEventListener("click", function(e){
+    const oper= document.createElement("p");
+    const operDisplay= document.querySelector(".up-display");
+    oper.classList.add("oper");
+    oper.textContent=`${e.target.textContent}`;
+    var1=var2;
+    var2="";
+    operator= oper.textContent.trim();
+    operDisplay.appendChild(oper);
+    console.log(var1, var2);
+})
+
+const run= document.querySelector("#Equal");
+run.addEventListener("click", function(){
+    let result =operate();
+    var1="";
+    var2="";
+    document.querySelector(".display .output").textContent=`${result}`;
+});

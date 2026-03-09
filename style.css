@@ -30,6 +30,16 @@ body {
     margin: 20px;
     padding: 10px;
 }
+.up-display {
+    display: flex;
+    justify-content: space-between;
+}
+
+.up-display .output{
+    width: fit-content;
+    margin-left: auto;
+}
+
 .input, .output{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: blueviolet;
@@ -55,7 +65,7 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .numerical {
@@ -75,7 +85,10 @@ body {
 .special-character button{
     margin: 5px;
 }
-
+.side-panel{
+    display: flex;
+    flex-direction: column;
+}
 .operator {
     background-color: aqua;
     display: flex;
@@ -94,13 +107,16 @@ button {
 }
 
 .operator button {
+    aspect-ratio: 0.7;
     margin: 5px;
 }
 
 
 #Equal {
+    width: 100%;
+    height: 100%;
     aspect-ratio: auto;
-    flex: 1 0 100px;
-    flex-grow: auto;
     min-width: 100px;
+    margin: 0;
+    background-color: rgb(255, 89, 0);
 }
