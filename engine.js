@@ -33,3 +33,16 @@ function operate(var1, var2, operator){
         default: '!!!Something Went Wrong!!!'
     }
 }
+
+//DOM Manipulation
+
+const numerical= document.querySelector(".numerical");
+for(let i=1; i<=9; i++){
+const numButton= document.createElement("button");
+numButton.textContent= `${i}`;
+numerical.appendChild(numButton);
+}
+
+numerical.addEventListener("click", function(){
+    
+})
